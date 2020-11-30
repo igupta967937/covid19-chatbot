@@ -10,14 +10,14 @@
     <div class="chat-container"></div>
 
     <script
-        src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js" />
+        src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js">
     </script>
     <script type="text/javascript">
         var chatroom = new window.Chatroom({
             host: "http://localhost:5005",
             title: "Covid19 Info Bot",
             container: document.querySelector(".chat-container"),
-            welcomeMessage: "Hi, I am a Covid19 information Bot. You can ask me information about covid in your country such as number of cases. Try asking something or maybe just say 'hi'.",
+            welcomeMessage: "Hi, I am a Covid19 information Bot. You can ask me information about covid in India.\n \u2022 I can show covid cases distribution.\n \u2022 I can show covid statistics of a specific State. Just type in the name of that state.\n \u2022 I can show covid active cases on map.\n \u2022 I can send you an Email containing covid statistics of India.\n \u2022 I can tell you some tips about Corona Virus.",
             speechRecognition: "en-US",
             voiceLang: "en-US"
         });

@@ -1,30 +1,64 @@
 version: "2.0"
 
 stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: covid cases distribution path
+    steps:
+      - intent: covid_cases_ditribution
+      - action: action_show_covid_distribution
+
+  - story: covid state tracker path
+    steps:
+      - intent: covid_state_info
+      - action: action_covid_state_tracker
+
+  - story: covid email updates path
+    steps:
+      - intent: covid_email_updates
+      - action: utter_can_do
+      - action: utter_ask_email
+      - action: form_get_recipient_email
+      - active_loop: form_get_recipient_email
+      - active_loop: null
+      - action: action_send_email
+
+  - story: covid cases map path
+    steps:
+      - intent: covid_cases_map
+      - action: action_show_covid_map
+
+  - story: corona tips path
+    steps:
+      - intent: corona_tips
+      - action: utter_tips
+
+  - story: bot features path
+    steps:
+      - intent: bot_features
+      - action: utter_bot_features

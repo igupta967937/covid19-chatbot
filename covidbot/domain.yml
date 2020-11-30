@@ -8,26 +8,80 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - covid_state_info
+  - covid_cases_ditribution
+  - covid_email_updates
+  - covid_cases_map
+  - enter_data
+  - corona_tips
+  - out_of_scope/non_english
+  - out_of_scope/other
+  - bot_features
+
+actions:
+  - action_covid_state_tracker
+  - action_show_covid_distribution
+  - action_show_covid_map
+  - action_send_email
+
+entities:
+  - recipient_email
+
+slots:
+  recipient_email:
+    type: any
+
+forms:
+  form_get_recipient_email:
+    recipient_email:
+      - type: from_entity
+        entity: recipient_email
+      - type: from_text
+        intent: enter_data
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! How are you?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
+
+  utter_can_do:
+    - text: Sure thing!
+    - text: Can do!
+    - text: "You got it. 👍"
+
+  utter_ask_email:
+    - text: "What is your Email ID ?"
+
+  utter_tips:
+    - text: "COVID-19 affects different people in different ways. \nMost infected people will develop mild to moderate illness and recover without hospitalization.\n\nMost common symptoms:\n \u2022 fever\n \u2022 dry cough\n \u2022 tiredness\n\nLess common symptoms:\n\u2022 aches and pains\n\u2022 sore throat\n\u2022 diarrhoea\n\u2022 conjunctivitis\n\u2022 headache\n\u2022 loss of taste or smell\n\u2022 a rash on skin, or discolouration of fingers or toes\n\nSerious symptoms:\n\u2022 difficulty breathing or shortness of breath\n\u2022 chest pain or pressure\n\u2022 loss of speech or movement\n\nSeek immediate medical attention if you have serious symptoms. Always call before visiting your doctor or health facility.\nPeople with mild symptoms who are otherwise healthy should manage their symptoms at home.\nOn average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days."
+      image: "https://www.who.int/images/default-source/health-topics/coronavirus/covid19-infographic-symptoms-final.tmb-1920v.png"
+
+  utter_out_of_scope:
+    - text: Sorry, I can't handle that request.
+
+  utter_please_rephrase:
+    - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+
+  utter_bot_features:
+    - text: "Hi, I am a Covid19 information Bot. You can ask me information about covid in India.\n \u2022 I can show covid cases distribution.\n \u2022 I can show covid statistics of a specific State. Just type in the name of that state.\n \u2022 I can show covid active cases on map.\n \u2022 I can send you an Email containing covid statistics of India.\n \u2022 I can tell you some tips about Corona Virus."
+
+  utter_default:
+    - text: Sorry I didn't get that. Can you rephrase?
 
 session_config:
   session_expiration_time: 60
